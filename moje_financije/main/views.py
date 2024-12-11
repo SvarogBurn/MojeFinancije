@@ -5,6 +5,7 @@ def index(request):
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
+from django.shortcuts import redirect
 
 def register(request):
     if request.method == 'POST':
