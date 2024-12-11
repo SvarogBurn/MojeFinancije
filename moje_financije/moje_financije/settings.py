@@ -70,6 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'moje_financije.wsgi.application'
 
+LOGIN_REDIRECT_URL = '/'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
