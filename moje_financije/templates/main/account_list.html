@@ -1,0 +1,12 @@
+{% block content %}
+    <h2>Accounts</h2>
+    <ul>
+        {% for account in object_list %}
+            <li>
+                First name: {{ account.first_name }}<br>
+                Last name: {{ account.last_name }}<br>
+                IBAN: {{ account.iban }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

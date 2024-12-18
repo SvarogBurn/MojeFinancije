@@ -1,0 +1,14 @@
+{% block content %}
+    <h2>Transactions</h2>
+    <ul>
+        {% for transaction in object_list %}
+            <li>
+                sender/reciever: {{ transaction.account }}<br>
+                category: {{ transaction.category }}<br>
+                amount: {{ transaction.amount }}<br>
+                {{ transaction.description }}<br>
+                date: {{ transaction.date }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

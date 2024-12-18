@@ -1,11 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login
+from django.views.generic import ListView
+from main.models import *
+from django.views.generic.detail import DetailView
 
 def index(request):
     return render(request, 'main/index.html')
-
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login
-from django.shortcuts import redirect
 
 def register(request):
     if request.method == 'POST':
@@ -26,3 +27,17 @@ def register(request):
     context = {'form': form}
 
     return render(request, 'registration/register.html', context)
+
+
+
+class AccountList(ListView):
+    model = Account
+    
+class CategoryList(ListView):
+    model = Category
+    
+class TransactionList(ListView):
+    model = Transaction
+    
+class TransactionDetailView(DetailView):
+    model =Transaction
