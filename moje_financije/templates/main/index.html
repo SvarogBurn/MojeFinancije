@@ -6,29 +6,37 @@
 </head>
 <body>
     <header>
-        <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
             <h1>Moje Financije</h1>
             <div>
                 {% if user.is_authenticated %}
                     <span>Welcome, {{ user.username }}</span>
+                    <nav>
+                        <ul >
+                            <li><a href="{% url 'account' %}" >Accounts</a></li>
+                            <li><a href="{% url 'category' %}" >Categories</a></li>
+                            <li><a href="{% url 'transaction' %}" >Transactions</a></li>
+                        </ul>
+                    </nav>
                 {% else %}
-                    <a href="{% url 'register' %}" style="text-decoration: none;">Register</a>
+                    <a href="{% url 'register' %}">Register</a>   
+                    or 
+                    <a href="{% url 'login' %}">Login</a>
                 {% endif %}
             </div>
         </div>
     </header>
 
-    <nav>
-        <ul style="list-style-type: none; padding: 0;">
-            <li><a href="{% url 'account' %}" style="text-decoration: none;">Accounts</a></li>
-            <li><a href="{% url 'category' %}" style="text-decoration: none;">Categories</a></li>
-            <li><a href="{% url 'transaction' %}" style="text-decoration: none;">Transactions</a></li>
-        </ul>
-    </nav>
-
     <main>
         <h2>Welcome to Moje Financije</h2>
         <p>This is our homepage.</p>
+
+        <!-- Admin -->
+        {% if user.is_staff %}
+            <a href="/admin/" style="padding: 10px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px;">
+                Admin Panel
+            </a>
+        {% endif %}
     </main>
 </body>
 </html>

@@ -1,10 +1,24 @@
 {% block content %}
     <h2>Accounts</h2>
+
+    <!-- tražilica -->
+    <form method="get" style="margin-bottom: 20px;">
+        <input type="text" name="q" placeholder="Search..." value="{{ request.GET.q }}" style="padding: 5px; width: 200px;">
+        <button type="submit" style="padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 3px;">
+            Search
+        </button>
+        <a href="?" style="padding: 5px 10px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 3px;">
+            Clear
+        </a>
+    </form>
+
+    <!-- Accounts -->
     <ul>
         {% for account in object_list %}
-            <li>
-                First name: {{ account.first_name }}<br>
-                Last name: {{ account.last_name }}<br>
+            <li>               
+                <a href="{% url 'account_detail' account.pk %}">
+                {{ account.first_name }}  {{ account.last_name }}<br>
+                </a>
                 IBAN: {{ account.iban }}
             </li>
         {% endfor %}

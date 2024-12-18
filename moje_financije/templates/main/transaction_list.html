@@ -1,14 +1,51 @@
-{% block content %}
-    <h2>Transactions</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Past Transactions</title>
+</head>
+<body>
+    <h1>Past Transactions for {{ user.username }}</h1>
+
+    <!-- Search Bar -->
+    <form method="get" style="margin-bottom: 20px;">
+        <input type="text" name="q" placeholder="Search..." value="{{ request.GET.q }}" style="padding: 5px; width: 200px;">
+        <button type="submit" style="padding: 5px 10px; background-color: #007bff; color: white; border: none; border-radius: 3px;">
+            Search
+        </button>
+        <a href="?" style="padding: 5px 10px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 3px;">
+            Clear
+        </a>
+    </form>
+
+    <!-- Filter Buttons -->
+    <div style="margin-bottom: 20px;">
+        <a href="?income=true" style="padding: 10px; background-color:rgb(62, 156, 25); color: white; text-decoration: none; border-radius: 5px;">
+            Show Income
+        </a>
+        <a href="?income=false" style="padding: 10px; background-color:rgb(167, 40, 40); color: white; text-decoration: none; border-radius: 5px;">
+            Show Expenses
+        </a>
+        <a href="?" style="padding: 10px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 5px;">
+            Show All
+        </a>
+    </div>
+
+    <!-- Transaction List -->
     <ul>
         {% for transaction in object_list %}
             <li>
-                sender/reciever: {{ transaction.account }}<br>
-                category: {{ transaction.category }}<br>
-                amount: {{ transaction.amount }}<br>
-                {{ transaction.description }}<br>
-                date: {{ transaction.date }}
+                <div class="transaction-description">
+                    <h3>
+                        <a href="{% url 'transaction_detail' transaction.pk %}">
+                            {{ transaction.description }}
+                        </a>
+                    </h3>
+                </div>
+                <div class="transaction-amount">
+                    amount: {{ transaction.amount }}
+                </div>
             </li>
         {% endfor %}
     </ul>
-{% endblock %}
+</body>
+</html>

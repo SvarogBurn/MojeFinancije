@@ -31,4 +31,4 @@ class TransactionFactory(DjangoModelFactory):
     amount = factory.Faker("pydecimal", min_value=1, max_value=10000)
     description = factory.Faker("sentence", nb_words=15)
     transaction_date = factory.Faker("date_time")    
-    is_income = True
+    is_income = factory.Faker("pybool")

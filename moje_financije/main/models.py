@@ -32,4 +32,4 @@ class Transaction(models.Model):
     is_income = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.amount} - {self.category} ({self.date})"
+        return f"{self.amount} - {self.category} ({self.transaction_date})"

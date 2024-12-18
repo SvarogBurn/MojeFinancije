@@ -1,6 +1,11 @@
-<h1>{{ transaction.account.first_name }}</h1>
-<p>{{ transaction.description }}</p>
 
-category: {{ transaction.category }}<br>
-amount: {{ transaction.amount }}<br>
-date: {{ transaction.date }}
+<h2>{{ transaction.description }}</h2>
+
+    from: 
+    <a href="{% url 'account_detail' transaction.account.pk %}">
+        {{ transaction.account.first_name }} {{ transaction.account.last_name }}
+</a>
+<p>category: {{ transaction.category }}</p>
+<p>amount: {{ transaction.amount }}</p>
+<p>date: {{ transaction.transaction_date }}</p>
+

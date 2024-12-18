@@ -7,5 +7,6 @@ urlpatterns = [
     path('account/', views.AccountList.as_view(), name='account'),
     path('category/', views.CategoryList.as_view(), name='category'),
     path('transaction/', views.TransactionList.as_view(), name='transaction'),
-    path('<pk>/', views.TransactionDetailView.as_view(), name='transaction_detail'),
+    path('transaction/<pk>/', views.TransactionDetailView.as_view(), name='transaction_detail'),
+    path('account/<pk>/', views.AccountDetailView.as_view(), name='account_detail'),
 ]

@@ -68,6 +68,8 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_REDIRECT_URL = '/'
+
 WSGI_APPLICATION = "moje_financije.wsgi.application"
 
 
