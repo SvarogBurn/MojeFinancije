@@ -1,0 +1,19 @@
+<li>
+    {{ category.name }}<br>
+    {{ category.description }}
+</li>
+
+<!-- Action Buttons -->
+<div style="margin-top: 20px;">
+    <!-- Update Button -->
+    <a href="{% url 'account_update' account.pk %}" 
+       style="padding: 10px 15px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; margin-right: 10px;">
+        Update Category
+    </a>
+
+    <!-- Delete Button -->
+    <a href="{% url 'account_delete' account.pk %}" 
+       style="padding: 10px 15px; background-color: #dc3545; color: white; text-decoration: none; border-radius: 5px;">
+        Delete Category
+    </a>
+</div>
